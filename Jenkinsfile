@@ -10,7 +10,7 @@ pipeline {
       steps {
         container('pod-dind'){
         sh "whoami"
-        sh "docker ps" 
+        sh "sudo docker ps" 
         git 'https://github.com/xiaojin525/distroless-demo.git'
         }
       }
