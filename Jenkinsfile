@@ -2,11 +2,11 @@ pipeline {
   agent {
     node {
       label 'pod-dind'
+      defaultContainer 'pod-dind'
     }
 
   }
   stages {
-    container('jenkins-node-cf'){
     stage('clone') {
       steps {
         git 'https://github.com/xiaojin525/distroless-demo.git'
