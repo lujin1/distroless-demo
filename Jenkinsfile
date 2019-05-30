@@ -9,7 +9,7 @@ pipeline {
     stage('clone') {
       steps {
         container('pod-dind'){
-        sh "docker" 
+        sh "docker ps" 
         git 'https://github.com/xiaojin525/distroless-demo.git'
         }
       }
