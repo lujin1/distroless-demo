@@ -11,5 +11,11 @@ pipeline {
         git 'https://github.com/xiaojin525/distroless-demo.git'
       }
     }
+    stage('DockerBuild') {
+      steps {
+        sh 'ls -l'
+        sh 'pwd'
+      }
+    }
   }
 }
