@@ -1,0 +1,2 @@
+# distroless-demo
+Dockerfile
