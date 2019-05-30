@@ -6,6 +6,7 @@ pipeline {
 
   }
   stages {
+    container('jenkins-node-cf'){
     stage('clone') {
       steps {
         git 'https://github.com/xiaojin525/distroless-demo.git'
@@ -27,4 +28,5 @@ pipeline {
       }
     }
   }
+}
 }
