@@ -9,6 +9,7 @@ pipeline {
     stage('clone') {
       steps {
         container('pod-dind'){
+        sh "whoami"
         sh "docker ps" 
         git 'https://github.com/xiaojin525/distroless-demo.git'
         }
