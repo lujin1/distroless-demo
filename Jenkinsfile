@@ -27,8 +27,4 @@ pipeline {
       }
     }
   }
-  environment {
-    test = '11'
-    defaultContainer = 'pod-dind'
-  }
 }
