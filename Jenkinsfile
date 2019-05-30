@@ -13,8 +13,17 @@ pipeline {
     }
     stage('DockerBuild') {
       steps {
-        sh 'ls -l'
-        sh 'pwd'
+        sh 'docker build -t harbor.eastasia.cloudapp.azure.com/lujin/distroless-demo:v1 .'
+      }
+    }
+    stage('DockerLogin') {
+      steps {
+        sh 'docker login harbor.eastasia.cloudapp.azure.com -u lu.jin@advantech.com.cn -p 1qazXSW@'
+      }
+    }
+    stage('DockerPush') {
+      steps {
+        sh 'docker push harbor.eastasia.cloudapp.azure.com/distroless-demo:v1'
       }
     }
   }
