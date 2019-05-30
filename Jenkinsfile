@@ -27,4 +27,7 @@ pipeline {
       }
     }
   }
+  environment {
+    test = '11'
+  }
 }
