@@ -1,16 +1,11 @@
 pipeline {
-  agent {
-    node {
-      label 'pod-dind'
-    }
-
-  }
+  agent { label 'pod-dind' }
   stages {
     stage('clone') {
       steps {
         container('pod-dind'){
         sh "whoami"
-        sh "sudo docker ps" 
+        sh "docker ps" 
         git 'https://github.com/xiaojin525/distroless-demo.git'
         }
       }
