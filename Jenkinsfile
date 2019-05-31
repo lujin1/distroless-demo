@@ -13,21 +13,21 @@ pipeline {
     stage('DockerBuild') {
       steps {
         container('pod-dind'){
-        sh 'docker build -t harbor.eastasia.cloudapp.azure.com/lujin/distroless-demo:v1 .'
+        sh 'docker build -t harbor.com/lujin/distroless-demo:v1 .'
         }
       }
     }
     stage('DockerLogin') {
       steps {
         container('pod-dind'){
-        sh 'docker login harbor.eastasia.cloudapp.azure.com -u lu.jin@advantech.com.cn -p 1qazXSW@'
+        sh 'docker login harbor.com -u lu.jin@advantech.com.cn -p @PASSWORD'
         }
       }
     }
     stage('DockerPush') {
       steps {
         container('pod-dind'){
-        sh 'docker push harbor.eastasia.cloudapp.azure.com/lujin/distroless-demo:v1'
+        sh 'docker push harbor.com/lujin/distroless-demo:v1'
         }
       }
     }
