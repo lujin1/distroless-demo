@@ -27,7 +27,7 @@ pipeline {
     stage('DockerPush') {
       steps {
         container('pod-dind'){
-        sh 'docker push harbor.eastasia.cloudapp.azure.com/distroless-demo:v1'
+        sh 'docker push harbor.eastasia.cloudapp.azure.com/lujin/distroless-demo:v1'
         }
       }
     }
