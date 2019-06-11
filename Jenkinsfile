@@ -1,9 +1,9 @@
 pipeline {
-  agent { label 'pod-dind' }
+  agent { label 'docker-dind' }
   stages {
     stage('clone') {
       steps {
-        container('pod-dind'){
+        container('docker-dind'){
         sh "whoami"
         sh "docker ps" 
         git 'https://github.com/xiaojin525/distroless-demo.git'
@@ -12,21 +12,21 @@ pipeline {
     }
     stage('DockerBuild') {
       steps {
-        container('pod-dind'){
+        container('docker-dind'){
         sh 'docker build -t harbor.com/lujin/distroless-demo:v1 .'
         }
       }
     }
     stage('DockerLogin') {
       steps {
-        container('pod-dind'){
+        container('docker-dind'){
         sh 'docker login harbor.com -u lu.jin@advantech.com.cn -p @PASSWORD'
         }
       }
     }
     stage('DockerPush') {
       steps {
-        container('pod-dind'){
+        container('docker-dind'){
         sh 'docker push harbor.com/lujin/distroless-demo:v1'
         }
       }
